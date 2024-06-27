@@ -8,6 +8,7 @@ export default async function(url, destination)  {
   const images = await scrapeImages(browser, url);
   await browser.close();
 
+  destination = destination || './images/';
   if (!existsSync(destination)) {
     mkdirSync(destination);
   }
