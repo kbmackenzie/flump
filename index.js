@@ -1,6 +1,6 @@
 import puppeteer from 'puppeteer';
-import { scrapeImages } from './src/scrape-images';
-import { downloadImage } from './src/download-image';
+import { scrapeImages } from './src/scrape-images.js';
+import { downloadImage } from './src/download-image.js';
 import { existsSync, mkdirSync } from 'node:fs';
 
 export default async function(url, destination)  {
