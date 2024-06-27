@@ -15,8 +15,12 @@ export const downloadImage = async (url, destination) => {
   const filename   = parseContentDisposition(contentDisposition).parameters.filename;
   const targetPath = joinPath(destination, filename);
 
+  console.log(`Downloading image '${filename}'...`);
+
   await pipeline(
     imageStream,
     createWriteStream(targetPath),
   );
+
+  console.log(`Downloaded image '${filename}' successfully!`);
 };

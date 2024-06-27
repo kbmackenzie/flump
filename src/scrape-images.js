@@ -23,12 +23,13 @@ export const scrapeImages = async (browser, url) => {
   const page = await browser.newPage();
 
   await page.goto(url);
-  await timeout(5000);
+  console.log('Fetching images...');
   const imagePaths = await findImages(page);
 
   const sources = [];
 
   for (const path of imagePaths) {
+    console.log(`Fetching source for image '${path}'...`);
     await page.goto(path);
     const source = await scrapeLightbox(page);
     sources.push(source);
