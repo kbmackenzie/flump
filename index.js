@@ -1,3 +1,3 @@
-import { scrape } from './src/scraper';
+import { scraper } from './src/scraper/index.js';
 
-export default scrape;
+export default scraper;
