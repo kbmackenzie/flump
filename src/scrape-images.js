@@ -1,21 +1,29 @@
-const thumbSelector  = 'a.image.lightbox';
+const thumbSelector = 'a.image.lightbox';
 const sourceSelector = '#LightboxModal .see-full-size-link';
 
-const findImages = (page) => page.evaluate(() => {
-  return Array.from(
-    document.querySelectorAll(thumbSelector)
-  ).map(anchor => anchor.href);
-});
+const findImages = (page) => page.evaluate(
+  (selector) => {
+    return Array.from(document.querySelectorAll(selector))
+      .map(anchor => anchor.href);
+  },
+  thumbSelector
+);
 
 const scrapeLightbox = async (page) => {
   await page.waitForSelector(sourceSelector, { timeout: 8000 });
-  return page.evaluate(() => document.querySelector(sourceSelector)?.href);
+  return page.evaluate(
+    (selector) => document.querySelector(selector)?.href,
+    sourceSelector
+  );
 };
+
+const timeout = (amount) => new Promise(resolve => setTimeout(resolve, amount));
 
 export const scrapeImages = async (browser, url) => {
   const page = await browser.newPage();
 
   await page.goto(url);
+  await timeout(5000);
   const imagePaths = await findImages(page);
 
   const sources = [];
