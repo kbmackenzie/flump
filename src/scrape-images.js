@@ -17,8 +17,6 @@ const scrapeLightbox = async (page) => {
   );
 };
 
-const timeout = (amount) => new Promise(resolve => setTimeout(resolve, amount));
-
 export const scrapeImages = async (browser, url) => {
   const page = await browser.newPage();
 
