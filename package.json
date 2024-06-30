@@ -1,7 +1,7 @@
 {
-  "name": "fandom-gallery-scraper",
+  "name": "flump",
   "version": "1.0.0",
-  "description": "A script for mass-downloading images in Fandom Wiki 'lightbox' galleries.",
+  "description": "A tool for scraping Fandom Wiki images.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -10,6 +10,7 @@
   "author": "KBMackenzie <kelly.a.betty@gmail.com>",
   "license": "GPL-3.0-only",
   "dependencies": {
+    "commander": "^12.1.0",
     "content-disposition": "^0.5.4",
     "node-fetch": "^3.3.2",
     "puppeteer": "^22.12.1"
