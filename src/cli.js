@@ -6,12 +6,12 @@ export const run = () => {
 
   program
     .name('flump')
-    .description('Fandom wiki image scraper.')
+    .description('Fandom wiki gallery scraper.')
     .version('1.0.0');
 
   program
-    .argument('<url>', 'The URL of the Fandom wiki page you want to scrape.')
-    .option('-o, --output <path>', 'The path where images should be dumped.')
+    .argument('<url>', 'URL of a Fandom wiki page to scrape')
+    .option('-o, --output <path>', 'directory where images should be dumped')
     .action(async (url, options) => {
       const outputDir = options.output || './images/';
       await scraper(url, outputDir);
