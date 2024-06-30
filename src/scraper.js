@@ -11,6 +11,10 @@ export const scraper = async (url, destination) => {
 
   await mkdir(destination, { recursive: true });
 
-  const promises = images.map(url => downloadImage(url, destination));
-  return promiseBatch(promises);
+  /* q: 'Why run these Promises in batches?'
+   * a: So it doesn't overwhelm node-fetch's request queue! */
+  return promiseBatch(
+    url => downloadImage(url, destination),
+    images,
+  );
 };
