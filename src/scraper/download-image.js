@@ -1,8 +1,8 @@
-import fetch from "node-fetch";
-import { createWriteStream } from "node:fs";
-import { pipeline } from "node:stream/promises";
-import { parse as parseContentDisposition } from "content-disposition";
-import { join as joinPath } from "node:path";
+import fetch from 'node-fetch';
+import { createWriteStream } from 'node:fs';
+import { pipeline } from 'node:stream/promises';
+import { parse as parseContentDisposition } from 'content-disposition';
+import { join as joinPath } from 'node:path';
 
 const imageTypes = new Set([
   'image/apng',
