@@ -1,4 +1,4 @@
-const thumbSelector = 'a.image.lightbox';
+const thumbSelector = 'a.image';
 const sourceSelector = '#LightboxModal .see-full-size-link';
 
 const findImages = (page) => page.evaluate(
