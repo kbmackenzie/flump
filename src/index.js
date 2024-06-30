@@ -1,5 +1,7 @@
 import { scraper } from './scraper.js';
-import { run } from './cli.js';
+import { cli } from './cli.js';
 
-export default scraper;
-run();
+export {
+  scraper,
+  cli,
+}
