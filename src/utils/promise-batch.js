@@ -4,7 +4,7 @@ export async function promiseBatch(task, items, chunkSize = 4) {
     chunks.push(items.slice(i, i + chunkSize));
   }
   for (const chunk of chunks) {
-    console.log('running batch...');
+    console.debug('running batch...');
     await Promise.all(chunk.map(x => task(x)));
   }
 }
