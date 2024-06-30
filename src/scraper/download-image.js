@@ -20,13 +20,16 @@ export const downloadImage = async (url, destination) => {
 
   const contentType = response.headers.get('Content-Type');
   if (!contentType || !imageTypes.has(contentType.toLowerCase())) {
-    throw new Error(`Response's MIME type isn't a valid image type! | url: ${url}`);
+    console.error(`Response's MIME type isn't a valid image type! | url: ${url}`);
+    return;
   }
 
   const contentDisposition = response.headers.get('Content-Disposition');
   if (!contentDisposition) {
-    throw new Error(`Response is missing 'Content-Disposition' header! | url: ${url}`);
+    console.error(`Response is missing 'Content-Disposition' header! | url: ${url}`);
+    return;
   }
+
   const filename   = parseContentDisposition(contentDisposition).parameters.filename;
   const targetPath = joinPath(destination, filename);
 
