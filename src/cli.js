@@ -1,7 +1,7 @@
 import { Command } from 'commander';
 import { scraper } from './scraper.js';
 
-export const run = () => {
+export const cli = () => {
   const program = new Command();
 
   program
