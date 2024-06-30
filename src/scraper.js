@@ -2,6 +2,7 @@ import puppeteer from 'puppeteer';
 import { scrapeImages } from './scraper/scrape-images.js';
 import { downloadImage } from './scraper/download-image.js';
 import { mkdir } from 'node:fs/promises';
+import { promiseBatch } from './utils/promise-batch.js';
 
 export const scraper = async (url, destination) => {
   const browser = await puppeteer.launch();
@@ -11,5 +12,5 @@ export const scraper = async (url, destination) => {
   await mkdir(destination, { recursive: true });
 
   const promises = images.map(url => downloadImage(url, destination));
-  return Promise.all(promises);
+  return promiseBatch(promises);
 };
