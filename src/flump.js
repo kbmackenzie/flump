@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 import { Command } from 'commander';
 import { scraper } from './scraper.js';
+import { initLogger } from './logger.js';
 
 const program = new Command();
 
@@ -13,8 +14,9 @@ program
   .argument('<url>', 'URL of a Fandom wiki page to scrape')
   .option('-o, --output <path>', 'directory where images should be dumped')
   .action(async (url, options) => {
-    const outputDir = options.output || './images/';
-    await scraper(url, outputDir);
+    const destination = options.output || './images/';
+    const logger      = initLogger(!!options.quiet);
+    await scraper(url, destination, logger);
   });
 
 program.parse();

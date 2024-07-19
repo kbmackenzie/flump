@@ -20,25 +20,30 @@ export const downloadImage = async (url, destination) => {
 
   const contentType = response.headers.get('Content-Type');
   if (!contentType || !imageTypes.has(contentType.toLowerCase())) {
-    console.error(`Response's MIME type isn't a valid image type! | url: ${url}`);
-    return;
+    return {
+      type: 'error',
+      message: `Response's MIME type isn't a valid image type! | url: ${url}`,
+    };
   }
 
   const contentDisposition = response.headers.get('Content-Disposition');
   if (!contentDisposition) {
-    console.error(`Response is missing 'Content-Disposition' header! | url: ${url}`);
-    return;
+    return {
+      type: 'error',
+      message: `Response is missing 'Content-Disposition' header! | url: ${url}`,
+    };
   }
 
   const filename   = parseContentDisposition(contentDisposition).parameters.filename;
   const targetPath = joinPath(destination, filename);
-
-  console.log(`Downloading image '${filename}'...`);
 
   await pipeline(
     imageStream,
     createWriteStream(targetPath),
   );
 
-  console.log(`Downloaded image '${filename}' successfully!`);
+  return {
+    type: 'success',
+    message: `Downloaded image '${filename}' successfully!`,
+  };
 };

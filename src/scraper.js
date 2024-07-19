@@ -4,9 +4,9 @@ import { downloadImage } from './scraper/download-image.js';
 import { mkdir } from 'node:fs/promises';
 import { promiseBatch } from './utils/promise-batch.js';
 
-export const scraper = async (url, destination) => {
+export const scraper = async (url, destination, logger) => {
   const browser = await puppeteer.launch();
-  const images = await scrapeImages(browser, url);
+  const images  = await scrapeImages(browser, url, logger);
   await browser.close();
 
   await mkdir(destination, { recursive: true });
@@ -14,7 +14,17 @@ export const scraper = async (url, destination) => {
   /* q: 'Why run these Promises in batches?'
    * a: So it doesn't overwhelm node-fetch's request queue! */
   return promiseBatch(
-    url => downloadImage(url, destination),
+    async (url) => {
+      logger.info(`Downloading image from URL '${url}'...`);
+
+      const result = await downloadImage(url, destination);
+      if (result.type === 'success') {
+        logger.info(result.message);
+      }
+      else if (result.type === 'error') {
+        logger.error(result.message);
+      }
+    },
     images,
   );
 };

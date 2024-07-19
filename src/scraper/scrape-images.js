@@ -17,26 +17,41 @@ const scrapeLightbox = async (page) => {
   );
 };
 
-export const scrapeImages = async (browser, url) => {
+const scrapeImage = async (page, path) => {
+  await page.goto(path);
+  try {
+    const source = await scrapeLightbox(page);
+    return {
+      type: 'success',
+      data: source,
+    };
+  }
+  catch (error) {
+    return {
+      type: 'error',
+      message: `Couldn't fetch source for image '${path}'!`,
+      error: error,
+    };
+  }
+};
+
+export const scrapeImages = async (browser, url, logger) => {
   const page = await browser.newPage();
   await page.goto(url);
 
-  console.log('Fetching images...');
+  logger.info('Fetching images...');
   const imagePaths = await findImages(page);
 
-  const sources = [];
-
   for (const path of imagePaths) {
-    console.log(`Fetching source for image '${path}'...`);
-    await page.goto(path);
-    try {
-      const source = await scrapeLightbox(page);
-      sources.push(source);
+    logger.info(`Fetching image '${path}'...`);
+    const result = await scrapeImage(page, path);
+
+    if (result.type === 'success') {
+      sources.push(result.data);
     }
-    catch (error) {
-      console.error(`Couldn't fetch source for image '${path}'!`);
-      console.error('Error: ' + error.toString());
-      continue;
+    else if (result.type === 'error') {
+      logger.error(result.message);
+      logger.error(result.error.toString());
     }
   }
   await page.close();
