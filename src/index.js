@@ -3,6 +3,6 @@ import { initLogger } from './logger.js';
 
 export default async (url, options = {}) => {
   const destination = options.output || './images/';
-  const logger      = initLogger(!!options.quiet);
+  const logger      = initLogger(!!options.quiet, destination);
   await scraper(url, destination, logger);
 };

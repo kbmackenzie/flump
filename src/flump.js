@@ -16,7 +16,7 @@ program
   .option('-q, --quiet', 'silence log messages')
   .action(async (url, options) => {
     const destination = options.output || './images/';
-    const logger      = initLogger(!!options.quiet);
+    const logger      = initLogger(!!options.quiet, destination);
     await scraper(url, destination, logger);
   });
 
