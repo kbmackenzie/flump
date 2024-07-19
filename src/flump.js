@@ -13,6 +13,7 @@ program
 program
   .argument('<url>', 'URL of a Fandom wiki page to scrape')
   .option('-o, --output <path>', 'directory where images should be dumped')
+  .option('-q, --quiet', 'silence log messages')
   .action(async (url, options) => {
     const destination = options.output || './images/';
     const logger      = initLogger(!!options.quiet);
