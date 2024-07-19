@@ -1,7 +1,8 @@
 import { scraper } from './scraper.js';
-import { cli } from './cli.js';
+import { initLogger } from './logger.js';
 
-export {
-  scraper,
-  cli,
-}
+export default async (url, options = {}) => {
+  const destination = options.output || './images/';
+  const logger      = initLogger(!!options.quiet);
+  await scraper(url, destination, logger);
+};
