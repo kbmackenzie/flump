@@ -1,12 +1,9 @@
 {
   "name": "flump",
   "version": "1.0.0",
-  "description": "A tool for scraping Fandom Wiki images.",
+  "description": "A tool for mass-downloading images from Fandom wiki pages.",
   "main": "./src/index.js",
   "bin": "./src/flump.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "type": "module",
   "author": "kbmackenzie <kelly.a.betty@gmail.com>",
   "license": "GPL-3.0-only",
