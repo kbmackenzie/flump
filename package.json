@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "A tool for scraping Fandom Wiki images.",
   "main": "./src/index.js",
-  "bin": "./src/cli.js",
+  "bin": "./src/flump.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
