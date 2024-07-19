@@ -7,6 +7,21 @@
   "type": "module",
   "author": "kbmackenzie <kelly.a.betty@gmail.com>",
   "license": "GPL-3.0-only",
+  "keywords": [
+    "scraper",
+    "images",
+    "fandom",
+    "wiki",
+    "wikia"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kbmackenzie/flump.git"
+  },
+  "homepage": "https://github.com/kbmackenzie/flump#readme",
+  "bugs": {
+    "url": "https://github.com/kbmackenzie/flump/issues"
+  },
   "dependencies": {
     "commander": "^12.1.0",
     "content-disposition": "^0.5.4",
