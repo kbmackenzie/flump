@@ -42,6 +42,8 @@ export const scrapeImages = async (browser, url, logger) => {
   logger.info('Fetching images...');
   const imagePaths = await findImages(page);
 
+  const sources = [];
+
   for (const path of imagePaths) {
     logger.info(`Fetching image '${path}'...`);
     const result = await scrapeImage(page, path);
