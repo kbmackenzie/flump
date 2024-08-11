@@ -12,7 +12,7 @@ export const scraper = async (url, destination, logger) => {
   await mkdir(destination, { recursive: true });
 
   /* q: 'Why run these Promises in batches?'
-   * a: So it doesn't overwhelm node-fetch's request queue! */
+   * a: https://github.com/node-fetch/node-fetch/issues/449#issuecomment-472353510 */
   return promiseBatch(
     async (url) => {
       logger.info(`Downloading image from URL '${url}'...`);
