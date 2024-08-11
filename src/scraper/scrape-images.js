@@ -4,7 +4,8 @@ const sourceSelector = '#LightboxModal .see-full-size-link';
 const findImages = (page) => page.evaluate(
   (selector) => {
     return Array.from(document.querySelectorAll(selector))
-      .map(anchor => anchor.href);
+      .map(anchor => anchor.href)
+      .filter(href => !!href && URL.canParse(href));
   },
   thumbSelector
 );
