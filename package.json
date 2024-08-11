@@ -1,9 +1,9 @@
 {
   "name": "flump",
   "version": "1.0.0",
-  "description": "A tool for mass-downloading images from Fandom wiki pages.",
-  "main": "./src/index.js",
-  "bin": "./src/flump.js",
+  "description": "Fandom gallery scraper.",
+  "main": "src/index.js",
+  "bin": "src/flump.js",
   "type": "module",
   "author": "kbmackenzie <kelly.a.betty@gmail.com>",
   "license": "GPL-3.0-only",
