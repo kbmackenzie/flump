@@ -4,7 +4,7 @@ In Fandom image galleries, images are usually scaled down, and the URL to the fu
 
 Because of this, simple image scrapers typically end up downloading very scaled-down, lower quality versions of images from galleries.
 
-This tool gets around that. It uses [puppeteer][3] and is designed to be **reliable**—*not* fast. For big pages (like [this one][4]), it can take around 5 minutes for it to download everything.
+This tool gets around that. It uses [puppeteer][3] and is designed to be **reliable**—*not* fast. For big pages (like [this one][4]), it can take around 5 minutes to download everything.
 
 **Note:** Images that are not part of a Fandom gallery (see [this definition][1]) are not downloaded.
 
