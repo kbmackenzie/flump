@@ -1,11 +1,11 @@
-A simple CLI tool for mass-downloading full-quality images from Fandom wiki pages' [image galleries][1].
+A simple CLI tool for mass-downloading full-size images from Fandom wiki pages' [image galleries][1].
 
-**Table of Contents**
+## Contents
 - [Installation](#installation)
 - [Usage](#usage)
 - [Command-Line Options](#command-line-options)
 
-In Fandom image galleries, images are usually scaled down, and the URL to the full-size version of an image is not present in the DOM until a user **clicks** on an image thumbnail and opens the [image lightbox][2]. Because of this, simple image scrapers typically end up downloading very scaled-down, lower quality versions of images from galleries. Additionally, images are often lazy loaded, which makes scraping harder.
+In Fandom galleries, images are usually scaled down and the URL to the full-size image is often not present in the DOM until a user **clicks** on the image thumbnail (opening the [image lightbox][2]). Because of this, most simple image scrapers end up downloading very scaled-down, lower quality versions of images from galleries. Additionally, images are often lazy loaded, which makes scraping harder.
 
 This tool gets around that. It uses [puppeteer][3] and is designed to be **reliable**—*not* fast. For big pages (like [this one][4]), it can take around 5 minutes to download everything.
 
