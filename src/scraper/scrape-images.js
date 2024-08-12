@@ -22,6 +22,12 @@ const scrapeImage = async (page, path) => {
   await page.goto(path);
   try {
     const source = await scrapeLightbox(page);
+    if (!source || !URL.canParse(source)) {
+      return {
+        type: 'error',
+        message: `Can\'t parse URL "${source}"!`,
+      };
+    }
     return {
       type: 'success',
       data: source,
@@ -30,8 +36,8 @@ const scrapeImage = async (page, path) => {
   catch (error) {
     return {
       type: 'error',
-      message: `Couldn't fetch source for image '${path}'!`,
       error: error,
+      message: `Couldn't fetch source for image '${path}'!`,
     };
   }
 };
@@ -54,7 +60,7 @@ export const scrapeImages = async (browser, url, logger) => {
     }
     else if (result.type === 'error') {
       logger.error(result.message);
-      logger.error(result.error.toString());
+      result.error && logger.error(result.error.toString());
     }
   }
   await page.close();
