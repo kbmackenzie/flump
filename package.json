@@ -1,6 +1,6 @@
 {
   "name": "flump",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Fandom wiki gallery scraper.",
   "main": "src/index.js",
   "bin": "src/flump.js",
