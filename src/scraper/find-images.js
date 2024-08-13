@@ -10,7 +10,7 @@ const findImages = (page) => page.evaluate(
   thumbSelector
 );
 
-const scrapeLightbox = async (page) => {
+const selectLightboxHref = async (page) => {
   await page.waitForSelector(sourceSelector, { timeout: 8000 });
   return page.evaluate(
     (selector) => document.querySelector(selector)?.href,
@@ -18,10 +18,10 @@ const scrapeLightbox = async (page) => {
   );
 };
 
-const scrapeImage = async (page, path) => {
+const getImageURL = async (page, path) => {
   await page.goto(path);
   try {
-    const source = await scrapeLightbox(page);
+    const source = await selectLightboxHref(page);
     if (!source || !URL.canParse(source)) {
       return {
         type: 'error',
@@ -42,7 +42,7 @@ const scrapeImage = async (page, path) => {
   }
 };
 
-export const scrapeImages = async (browser, url, logger) => {
+export const getImageURLs = async (browser, url, logger) => {
   const page = await browser.newPage();
   await page.goto(url);
 
@@ -53,7 +53,7 @@ export const scrapeImages = async (browser, url, logger) => {
 
   for (const path of imagePaths) {
     logger.info(`Fetching image '${path}'...`);
-    const result = await scrapeImage(page, path);
+    const result = await getImageURL(page, path);
 
     if (result.type === 'success') {
       sources.push(result.data);

@@ -1,14 +1,18 @@
 import puppeteer from 'puppeteer';
-import { scrapeImages } from './scraper/scrape-images.js';
-import { downloadImage } from './scraper/download-image.js';
 import { mkdir } from 'node:fs/promises';
-import { promiseBatch } from './utils/promise-batch.js';
+import { getImageURLs } from './find-images.js';
+import { downloadImage } from './download-image.js';
+import { promiseBatch } from '../utils/promise-batch.js';
 
-export const scraper = async (url, destination, logger) => {
+export const scrapeImages = async (url, logger) => {
   const browser = await puppeteer.launch();
-  const images  = await scrapeImages(browser, url, logger);
+  const images  = await getImageURLs(browser, url, logger);
   await browser.close();
+  return images;
+};
 
+export const downloadImages = async(url, destination, logger) => {
+  const images = await scrapeImages(url, logger);
   await mkdir(destination, { recursive: true });
 
   /* q: 'Why run these Promises in batches?'
@@ -16,8 +20,8 @@ export const scraper = async (url, destination, logger) => {
   return promiseBatch(
     async (url) => {
       logger.info(`Downloading image from URL '${url}'...`);
-
       const result = await downloadImage(url, destination);
+
       if (result.type === 'success') {
         logger.info(result.message);
       }
