@@ -28,5 +28,8 @@
     "node-fetch": "^3.3.2",
     "puppeteer": "^22.12.1",
     "winston": "^3.13.1"
+  },
+  "devDependencies": {
+    "jsdoc-to-markdown": "^8.0.3"
   }
 }
