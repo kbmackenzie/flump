@@ -10,12 +10,10 @@ import * as scraper from './scraper/index.js';
 /**
  * Scrape a Fandom wiki page for the full-size URLs of gallery images.
  * @param {string} url - URL to a Fandom character page.
- * @param {FlumpOptions} options - extra options
  * @returns {Promise<string[]>}
  */
-export async function scrapeImages(url, options = {}) {
-  const logger = initLogger(!!options.quiet, destination);
-  await scraper.scrapeImages(url, logger);
+export async function scrapeImages(url) {
+  await scraper.scrapeImages(url, null);
 };
 
 /**
