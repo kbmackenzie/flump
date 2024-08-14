@@ -46,21 +46,21 @@ export const getImageURLs = async (browser, url, logger) => {
   const page = await browser.newPage();
   await page.goto(url);
 
-  logger.info('Fetching images...');
+  logger?.info('Fetching images...');
   const imagePaths = await findImages(page);
 
   const sources = [];
 
   for (const path of imagePaths) {
-    logger.info(`Fetching image '${path}'...`);
+    logger?.info(`Fetching image '${path}'...`);
     const result = await getImageURL(page, path);
 
     if (result.type === 'success') {
       sources.push(result.data);
     }
     else if (result.type === 'error') {
-      logger.error(result.message);
-      result.error && logger.error(result.error.toString());
+      logger?.error(result.message);
+      result.error && logger?.error(result.error.toString());
     }
   }
   await page.close();

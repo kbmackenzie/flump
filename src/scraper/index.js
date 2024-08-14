@@ -19,14 +19,14 @@ export const downloadImages = async(url, destination, logger) => {
    * a: https://github.com/node-fetch/node-fetch/issues/449#issuecomment-472353510 */
   return promiseBatch(
     async (url) => {
-      logger.info(`Downloading image from URL '${url}'...`);
+      logger?.info(`Downloading image from URL '${url}'...`);
       const result = await downloadImage(url, destination);
 
       if (result.type === 'success') {
-        logger.info(result.message);
+        logger?.info(result.message);
       }
       else if (result.type === 'error') {
-        logger.error(result.message);
+        logger?.error(result.message);
       }
     },
     images,
