@@ -19,7 +19,7 @@ import * as scraper from './scraper/index.js';
  * @returns {Promise<string[]>} A list of image URLs as strings.
  */
 export async function scrapeImages(url) {
-  await scraper.scrapeImages(url, null);
+  return scraper.scrapeImages(url, null);
 };
 
 /**
