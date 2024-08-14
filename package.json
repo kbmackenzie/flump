@@ -17,6 +17,11 @@
     "wiki",
     "wikia"
   ],
+  "files": [
+    "src/",
+    "LICENSE",
+    "README.md"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/kbmackenzie/flump.git"
