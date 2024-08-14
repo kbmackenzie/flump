@@ -7,15 +7,16 @@ import * as scraper from './scraper/index.js';
  * */
 
 /** 
+ * Additional options passed to {@link module:flump.downloadImages}.
  * @typedef {Object} FlumpOptions
- * @prop {boolean} quiet - silence log messages
- * @prop {string} output - output folder for images
+ * @prop {boolean} quiet - Silence log messages.
+ * @prop {string} output - The output folder for images.
  */
 
 /**
  * Scrape a Fandom wiki page for gallery images and get their URLs.
  * @param {string} url - URL to a Fandom character page.
- * @returns {Promise<string[]>} - a list of image URLs as strings
+ * @returns {Promise<string[]>} A list of image URLs as strings.
  */
 export async function scrapeImages(url) {
   await scraper.scrapeImages(url, null);
@@ -24,7 +25,7 @@ export async function scrapeImages(url) {
 /**
  * Scrape a Fandom wiki page for gallery images and download all of them.
  * @param {string} url - URL to a Fandom character page.
- * @param {FlumpOptions} options - extra options
+ * @param {FlumpOptions} options - Additional options. See {@link module:flump~FlumpOptions}.
  * @returns {Promise<void>}
  */
 export async function downloadImages(url, options = {}) {
