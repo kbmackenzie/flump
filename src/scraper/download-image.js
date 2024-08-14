@@ -14,7 +14,7 @@ const imageTypes = new Set([
   'image/webp',
 ]);
 
-export const downloadImage = async (url, destination) => {
+export async function downloadImage(url, destination) {
   const response = await fetch(url);
   const imageStream = response.body;
 
