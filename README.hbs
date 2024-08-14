@@ -3,9 +3,10 @@ A simple CLI tool for mass-downloading full-size images from Fandom wiki pages' 
 ## Contents
 - [Installation](#installation)
 - [Usage](#usage)
-- [Command-Line Options](#command-line-options)
+  - [Command-Line Options](#command-line-options)
+- [API](#api)
 
-In Fandom galleries, images are usually scaled down and the URL to the full-size image is often not present in the DOM until a user **clicks** on the image thumbnail (opening the [image lightbox][2]). Because of this, most simple image scrapers end up downloading very scaled-down, lower quality versions of images from galleries. Additionally, images are often lazy loaded, which makes scraping harder.
+In Fandom galleries, images are usually scaled down and the URL to the full-size image is often not present in the DOM until a user **clicks** on the image thumbnail (opening the [image lightbox][2]). Because of this, most simple image scrapers end up downloading very scaled-down, lower quality versions of images from galleries. The images in galleries are also often lazy loaded, which makes scraping harder.
 
 This tool gets around that. It uses [puppeteer][3] and is designed to be **reliable**—*not* fast. For big pages (like [this one][4]), it can take around 5 minutes to download everything.
 
@@ -29,7 +30,7 @@ You can also set the destination folder for the images:
 flump "page-url-here" --output="folder-name"
 ```
 
-## Command-Line Options
+### Command-Line Options
 
 ```
 Usage: flump [options] <url>
@@ -46,14 +47,14 @@ Options:
   -h, --help           display help for command
 ```
 
-[1]: <https://community.fandom.com/wiki/Help:Galleries#Fandom_galleries>
-[2]: <https://community.fandom.com/wiki/Help:Image_lightbox>
-[3]: <https://github.com/puppeteer/puppeteer>
-[4]: <https://jojo.fandom.com/wiki/Gyro_Zeppeli?so=search#Gallery>
-
 ## API
 {{#module name="flump"}}
   {{>member-index~}}
   {{>separator~}}
   {{>members~}}
 {{/module}}
+
+[1]: <https://community.fandom.com/wiki/Help:Galleries#Fandom_galleries>
+[2]: <https://community.fandom.com/wiki/Help:Image_lightbox>
+[3]: <https://github.com/puppeteer/puppeteer>
+[4]: <https://jojo.fandom.com/wiki/Gyro_Zeppeli?so=search#Gallery>
