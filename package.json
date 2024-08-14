@@ -30,6 +30,7 @@
     "winston": "^3.13.1"
   },
   "devDependencies": {
+    "jsdoc": "^4.0.3",
     "jsdoc-to-markdown": "^8.0.3"
   }
 }
