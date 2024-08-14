@@ -66,7 +66,7 @@ Scrape a Fandom wiki page for gallery images and get their URLs.
 
 | Param | Type | Description |
 | --- | --- | --- |
-| url | <code>string</code> | URL to a Fandom character page. |
+| url | <code>string</code> | URL to a Fandom wiki page. |
 
 <a name="module_flump.downloadImages"></a>
 
@@ -77,7 +77,7 @@ Scrape a Fandom wiki page for gallery images and download all of them.
 
 | Param | Type | Description |
 | --- | --- | --- |
-| url | <code>string</code> | URL to a Fandom character page. |
+| url | <code>string</code> | URL to a Fandom wiki page. |
 | options | <code>FlumpOptions</code> | Additional options. See [FlumpOptions](#module_flump..FlumpOptions). |
 
 <a name="module_flump..FlumpOptions"></a>

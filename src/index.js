@@ -15,7 +15,7 @@ import * as scraper from './scraper/index.js';
 
 /**
  * Scrape a Fandom wiki page for gallery images and get their URLs.
- * @param {string} url - URL to a Fandom character page.
+ * @param {string} url - URL to a Fandom wiki page.
  * @returns {Promise<string[]>} A list of image URLs as strings.
  */
 export async function scrapeImages(url) {
@@ -24,7 +24,7 @@ export async function scrapeImages(url) {
 
 /**
  * Scrape a Fandom wiki page for gallery images and download all of them.
- * @param {string} url - URL to a Fandom character page.
+ * @param {string} url - URL to a Fandom wiki page.
  * @param {FlumpOptions} options - Additional options. See {@link module:flump~FlumpOptions}.
  * @returns {Promise<void>}
  */
