@@ -1,6 +1,11 @@
 import { initLogger } from './logger.js';
 import * as scraper from './scraper/index.js';
 
+/**
+ * Fandom wiki gallery scraper.
+ * @module flump 
+ * */
+
 /** 
  * @typedef {Object} FlumpOptions
  * @prop {boolean} quiet - silence log messages
@@ -8,16 +13,16 @@ import * as scraper from './scraper/index.js';
  */
 
 /**
- * Scrape a Fandom wiki page for the full-size URLs of gallery images.
+ * Scrape a Fandom wiki page for gallery images and get their URLs.
  * @param {string} url - URL to a Fandom character page.
- * @returns {Promise<string[]>}
+ * @returns {Promise<string[]>} - a list of image URLs as strings
  */
 export async function scrapeImages(url) {
   await scraper.scrapeImages(url, null);
 };
 
 /**
- * Scrape a Fandom wiki page and download all images from galleries.
+ * Scrape a Fandom wiki page for gallery images and download all of them.
  * @param {string} url - URL to a Fandom character page.
  * @param {FlumpOptions} options - extra options
  * @returns {Promise<void>}
