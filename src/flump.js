@@ -8,7 +8,7 @@ const program = new Command();
 program
   .name('flump')
   .description('Fandom wiki gallery scraper.')
-  .version('1.0.0');
+  .version('1.1.2');
 
 program
   .argument('<url>', 'URL of a Fandom wiki page to scrape')
