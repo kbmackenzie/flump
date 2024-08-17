@@ -20,8 +20,16 @@ export async function downloadImages(url, destination, logger) {
   return promiseBatch(
     async (url) => {
       logger?.info(`Downloading image from URL '${url}'...`);
-      const result = await downloadImage(url, destination);
-
+      let result;
+      try {
+        result = await downloadImage(url, destination);
+      }
+      catch (error) {
+        result = {
+          type: 'error',
+          message: `Couldn't download image "${url}"! | Error: ${String(error)}`,
+        };
+      }
       if (result.type === 'success') {
         logger?.info(result.message);
       }

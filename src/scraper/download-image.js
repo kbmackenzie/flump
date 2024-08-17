@@ -16,6 +16,12 @@ const imageTypes = new Set([
 
 export async function downloadImage(url, destination) {
   const response = await fetch(url);
+  if (!response.ok) {
+    return {
+      type: 'error',
+      message: `Couldn't fetch image "${url}"! Response status: ${response.status}`
+    };
+  }
   const imageStream = response.body;
 
   const contentType = response.headers.get('Content-Type');
