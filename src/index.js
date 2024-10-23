@@ -31,7 +31,7 @@ export async function scrapeImages(url) {
  * @returns {Promise<void>}
  */
 export async function downloadImages(url, options = {}) {
-  const logger = initLogger(!!options.quiet, destination);
   const destination = options.output || './images/';
+  const logger = initLogger(!!options.quiet, destination);
   await scraper.downloadImages(url, destination, logger);
 };
