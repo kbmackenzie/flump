@@ -1,3 +1,5 @@
+'use strict';
+
 import fetch from 'node-fetch';
 import { createWriteStream } from 'node:fs';
 import { pipeline } from 'node:stream/promises';

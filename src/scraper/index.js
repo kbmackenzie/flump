@@ -1,3 +1,5 @@
+'use strict';
+
 import puppeteer from 'puppeteer';
 import { mkdir } from 'node:fs/promises';
 import { getImageURLs } from './find-images.js';

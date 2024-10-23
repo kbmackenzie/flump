@@ -1,3 +1,5 @@
+'use strict';
+
 import winston from "winston";
 import { join as joinPath } from 'node:path';
 

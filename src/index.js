@@ -1,3 +1,5 @@
+'use strict';
+
 import { initLogger } from './logger.js';
 import * as scraper from './scraper/index.js';
 

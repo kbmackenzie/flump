@@ -1,3 +1,5 @@
+'use strict';
+
 const thumbSelector = 'a.image.lightbox';
 const sourceSelector = '#LightboxModal .see-full-size-link';
 

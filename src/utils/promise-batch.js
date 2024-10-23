@@ -1,3 +1,5 @@
+'use strict';
+
 export async function promiseBatch(task, items, chunkSize = 4) {
   const chunks = [];
   for (let i = 0; i < items.length; i += chunkSize) {
