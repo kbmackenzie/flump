@@ -2,7 +2,7 @@
 
 generate_docs() {
   mkdir -p './docs/'
-  npx jsdoc-to-markdown './src/index.js' > './docs/flump-api.md'
+  npx jsdoc-to-markdown './src/index.js' > './docs/flump.md'
 }
 
 generate_readme() {
