@@ -3,7 +3,7 @@
   "version": "1.1.3",
   "description": "Fandom wiki gallery scraper.",
   "main": "src/index.js",
-  "bin": "src/flump.js",
+  "bin": "bin/flump",
   "type": "module",
   "author": "kbmackenzie <kelly.a.betty@gmail.com>",
   "license": "GPL-3.0-only",
@@ -18,6 +18,7 @@
     "wikia"
   ],
   "files": [
+    "bin/",
     "src/",
     "LICENSE",
     "README.md"

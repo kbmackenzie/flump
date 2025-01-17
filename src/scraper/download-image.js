@@ -3,8 +3,8 @@
 import fetch from 'node-fetch';
 import { createWriteStream } from 'node:fs';
 import { pipeline } from 'node:stream/promises';
-import { parse as parseContentDisposition } from 'content-disposition';
-import { join as joinPath } from 'node:path';
+import contentDisposition from 'content-disposition';
+import path from 'node:path';
 
 const imageTypes = new Set([
   'image/apng',
@@ -34,16 +34,16 @@ export async function downloadImage(url, destination) {
     };
   }
 
-  const contentDisposition = response.headers.get('Content-Disposition');
-  if (!contentDisposition) {
+  const disposition = response.headers.get('Content-Disposition');
+  if (!disposition) {
     return {
       type: 'error',
       message: `Response is missing 'Content-Disposition' header! | url: ${url}`,
     };
   }
 
-  const filename   = parseContentDisposition(contentDisposition).parameters.filename;
-  const targetPath = joinPath(destination, filename);
+  const filename   = contentDisposition.parse(disposition).parameters.filename;
+  const targetPath = path.join(destination, filename);
 
   await pipeline(
     imageStream,

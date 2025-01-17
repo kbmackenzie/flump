@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 import { Command } from 'commander';
-import { initLogger } from './logger.js';
-import * as scraper from './scraper/index.js';
+import { initLogger } from '../src/logger.js';
+import { downloadImages } from  '../src/scraper.js';
 
 const program = new Command();
 
@@ -17,7 +17,7 @@ program
   .action(async (url, options) => {
     const destination = options.output || './images/';
     const logger      = initLogger(!!options.quiet, destination);
-    await scraper.downloadImages(url, destination, logger);
+    await downloadImages(url, destination, logger);
   });
 
 program.parse();

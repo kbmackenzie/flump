@@ -1,7 +1,7 @@
 'use strict';
 
-import winston from "winston";
-import { join as joinPath } from 'node:path';
+import winston from 'winston';
+import path from 'node:path';
 
 export const initLogger = (quiet, destination) => winston.createLogger({
   transports: [
@@ -14,7 +14,7 @@ export const initLogger = (quiet, destination) => winston.createLogger({
     }),
     new winston.transports.File({
       format: winston.format.json(),
-      filename: joinPath(destination, 'flump-output.log'),
+      filename: path.join(destination, 'flump-output.log'),
       level: 'info',
     }),
   ],

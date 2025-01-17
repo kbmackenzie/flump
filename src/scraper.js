@@ -1,10 +1,10 @@
 'use strict';
 
 import puppeteer from 'puppeteer';
-import { mkdir } from 'node:fs/promises';
-import { getImageURLs } from './find-images.js';
-import { downloadImage } from './download-image.js';
-import { promiseBatch } from '../utils/promise-batch.js';
+import fs from 'node:fs/promises';
+import { getImageURLs } from './scraper/find-images.js';
+import { downloadImage } from './scraper/download-image.js';
+import { promiseBatch } from './utils/promise-batch.js';
 
 export async function scrapeImages(url, logger) {
   const browser = await puppeteer.launch();
@@ -15,7 +15,7 @@ export async function scrapeImages(url, logger) {
 
 export async function downloadImages(url, destination, logger) {
   const images = await scrapeImages(url, logger);
-  await mkdir(destination, { recursive: true });
+  await fs.mkdir(destination, { recursive: true });
 
   /* q: 'Why run these Promises in batches?'
    * a: https://github.com/node-fetch/node-fetch/issues/449#issuecomment-472353510 */
