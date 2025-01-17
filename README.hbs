@@ -1,4 +1,6 @@
-A simple CLI tool for mass-downloading full-size images from Fandom wiki pages' [image galleries][1].
+A simple CLI tool for mass-downloading full-quality images from Fandom wiki pages' [image galleries][1].
+
+I wrote this mostly for my own convenience. If it's useful for anyone else, I'm glad! \_(:3」∠)\_
 
 ## Contents
 - [Installation](#installation)
