@@ -102,7 +102,7 @@ Additional options passed to [downloadImages](#module_flump.downloadImages).
 | output | <code>string</code> | The output folder for images. |
 
 
-[1]: <https://community.fandom.com/wiki/Help:Galleries#Fandom_galleries>
-[2]: <https://community.fandom.com/wiki/Help:Image_lightbox>
-[3]: <https://github.com/puppeteer/puppeteer>
-[4]: <https://jojo.fandom.com/wiki/Gyro_Zeppeli?so=search#Gallery>
+[1]: https://community.fandom.com/wiki/Help:Galleries#Fandom_galleries
+[2]: https://community.fandom.com/wiki/Help:Image_lightbox
+[3]: https://github.com/puppeteer/puppeteer
+[4]: https://jojo.fandom.com/wiki/Gyro_Zeppeli?so=search#Gallery
