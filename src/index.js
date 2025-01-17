@@ -1,7 +1,7 @@
 'use strict';
 
 import { initLogger } from './logger.js';
-import * as scraper from './scraper/index.js';
+import * as scraper from './scraper.js';
 
 /**
  * Fandom wiki gallery scraper.
