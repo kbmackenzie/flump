@@ -3,12 +3,14 @@ A simple CLI tool for mass-downloading full-size images from Fandom wiki pages' 
 ## Contents
 - [Installation](#installation)
 - [Usage](#usage)
-  - [Command-Line Options](#command-line-options)
+- [Command-Line Options](#command-line-options)
 - [API](#api)
 
-In Fandom galleries, images are usually scaled down and the URL to the full-size image is often not present in the DOM until a user **clicks** on the image thumbnail (opening the [image lightbox][2]). Because of this, most simple image scrapers end up downloading very scaled-down, lower quality versions of images from galleries. The images in galleries are also often lazy loaded, which makes scraping harder.
+In Fandom galleries, images are usually scaled down and the URL to the full-size image is often not present in the DOM until a user **clicks** on the image thumbnail (opening the [image lightbox][2]). Additionally, images are also lazy-loaded most of the time.
 
-This tool gets around that. It uses [puppeteer][3] and is designed to be **reliable**—*not* fast. For big pages (like [this one][4]), it can take around 5 minutes to download everything.
+A naive image scraper would only be able to download small, lower quality versions of images from galleries (if any at all). 
+
+This tool gets around that. It uses [puppeteer][3] and is designed to be **reliable**—*not* fast. For big pages (like [this one][4]), it can take a couple minutes to fetch every image.
 
 **Note:** Images that are not part of a Fandom gallery (see [this definition][1]) are not downloaded.
 
@@ -22,10 +24,13 @@ npm install -g flump
 ## Usage
 
 All you have to do is pass the URL to the wiki page as an argument:
+
 ```bash
 flump "page-url-here"
 ```
+
 You can also set the destination folder for the images:
+
 ```bash
 flump "page-url-here" --output="folder-name"
 ```
@@ -48,6 +53,7 @@ Options:
 ```
 
 ## API
+
 {{#module name="flump"}}
   {{>member-index~}}
   {{>separator~}}
